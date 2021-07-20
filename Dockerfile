@@ -7,17 +7,14 @@ FROM python:3.9-alpine
 MAINTAINER Andrey Shkulipa DO1821
 
 # create working directory
-RUN mkdir -p /home/shkulipa/docker-test/mydockerbuild/
+RUN mkdir -p /usr/src/app/
 
 # directory to install the app inside the container
-WORKDIR /home/shkulipa/docker-test/mydockerbuild/
+WORKDIR /usr/src/app/
 
-# install python dependencies, this will be cached if the requirements.txt file does not change
-COPY requirements.txt ./
+# copy application source code into container vs install python dependencies, this will be cached if the requirements.txt file does not change
+COPY . /usr/src/app/
 RUN pip install --no-cache-dir -r requirements.txt
-
-# copy application source code into container
-COPY app.py .
 
 # expose this TCP-port
 EXPOSE 8080
