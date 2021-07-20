@@ -6,6 +6,9 @@ FROM python:3.9-alpine
 # take some responsibility for this container
 MAINTAINER Andrey Shkulipa DO1821
 
+# create working directory
+RUN mkdir -p /home/shkulipa/docker-test/mydockerbuild/
+
 # directory to install the app inside the container
 WORKDIR /home/shkulipa/docker-test/mydockerbuild/
 
