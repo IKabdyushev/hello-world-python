@@ -2,6 +2,6 @@ version: "3.9"
 services:
   web:
     container_name: shkulipa_server
-    image: localhost:5000/testpython:${BUILD_NUMBER}
+    image: localhost:8080/testpython:${BUILD_NUMBER}
     ports:
       - "8080:8080"
