@@ -2,6 +2,8 @@ version: "3.9"
 services:
   web:
     container_name: shkulipa_server
-    image: localhost:8080/testpython:${BUILD_NUMBER}
+    build: .
     ports:
       - "8080:8080"
+  redis:
+    image: "redis:alpine"
