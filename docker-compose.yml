@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   web:
-    container_name: shkulipa_server
+    container_name: shkulipa_server_v1
     build: .
     ports:
       - "8080:8080"
