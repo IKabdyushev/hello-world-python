@@ -4,6 +4,6 @@ services:
     container_name: shkulipa_server
     build: .
     ports:
-      - "8080:8080"
+      - "5000:5000"
   redis:
     image: "redis:alpine"
