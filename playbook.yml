@@ -4,7 +4,9 @@
   gather_facts: false
   tasks:
   - name: Apt install docker
-    state: docker
+    apt:
+      name: docker
+      state: present
     
   - name: Copy docker-compose
     ansible.builtin.copy:
