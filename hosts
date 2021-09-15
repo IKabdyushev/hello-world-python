@@ -1,0 +1,6 @@
+all:
+  children:
+    devserver:
+      hosts:
+        172.28.1.3:
+          ansible_user: ikabds
