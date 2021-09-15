@@ -3,6 +3,9 @@
   hosts: devserver
   gather_facts: false
   tasks:
+  - name: Apt install docker
+    state: docker
+    
   - name: Copy docker-compose
     ansible.builtin.copy:
       src: docker-compose.yml
