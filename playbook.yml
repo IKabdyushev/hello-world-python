@@ -1,0 +1,12 @@
+---
+- name: Deploy
+  hosts: devserver
+  gather_facts: false
+  tasks:
+  - name: Copy docker-compose
+    ansible.builtin.copy:
+      src: docker-compose.yml
+      dest: ~/docker-compose.yml
+
+  - name: launch docker-compose
+    ansible.builtin.shell: docker-compose up -d
