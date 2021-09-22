@@ -1,6 +1,11 @@
 all:
   children:
-    devserver:
+    devservers:
       hosts:
         172.28.1.3:
           ansible_user: ikabds
+    registry:
+      hosts:
+        172.28.1.4:
+          ansible_user: ikabds
+      
