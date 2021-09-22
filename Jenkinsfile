@@ -18,7 +18,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "ansible-playbook -i hosts playbook.yml"
+                withCredentials([string(credentialsId: 'myssh', variable: 'SSH_PASSWORD')]) {
+                  sh "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts deploy.yml -e ansible_password=${SSH_PASSWORD}"
+                }
             }
         }
     }
