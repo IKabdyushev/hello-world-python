@@ -7,4 +7,4 @@
       dest: ~/docker-compose.yml
 
   - name: launch docker-compose
-    shell: "BUILD_NUMBER={{ BUILD_NUMBER }}docker-compose up -d"
+    shell: "BUILD_NUMBER={{ BUILD_NUMBER }} docker-compose up -d"
