@@ -9,6 +9,19 @@
       state: present
     become: true
     
+  - name: Copy registry config
+    ansible.builtin.copy:
+      src: registry-config.yml
+      dest: /etc/docker/registry/config.yml
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+    
+  - name: Restart service docker-registry
+    ansible.builtin.service:
+      name: docker-registry
+      state: restarted
+    
 - name: Ensure docker
   hosts: devservers
   become: true
