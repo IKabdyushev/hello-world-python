@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Prepare environments') {
             steps {
-                sh "ansible-playbook -i hosts playbook.yml -e ansible_password=${SSH_PASSWORD} -e ansible_sudo_pass=${SSH_PASSWORD}"
+                withCredentials([string(credentialsId: 'myssh', variable: 'SSH_PASSWORD')]) {
+                  sh "ansible-playbook -i hosts playbook.yml -e ansible_password=${SSH_PASSWORD} -e ansible_sudo_pass=${SSH_PASSWORD}"
+                }
             }
         }
         stage('Build') {
