@@ -1,0 +1,10 @@
+- name: Deploy webserver
+  hosts: devservers
+  tasks:
+  - name: Copy docker-compose
+    ansible.builtin.copy:
+      src: docker-compose.yml
+      dest: ~/docker-compose.yml
+
+  - name: launch docker-compose
+    shell: docker-compose up -d
