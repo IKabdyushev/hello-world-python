@@ -4,6 +4,6 @@ services:
     container_name: shkulipa_server_v1
     image: 172.28.1.4:5000/testpython:${BUILD_NUMBER}
     ports:
-      - "5000:5000"
+      - "8080:8080"
   redis:
     image: "redis:alpine"
