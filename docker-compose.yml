@@ -1,7 +1,6 @@
 version: "3.3"
 services:
   web:
-    container_name: shkulipa_server_v1
     image: 172.28.1.4:5000/testpython:${BUILD_NUMBER}
     ports:
       - "8080:8080"
