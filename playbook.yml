@@ -16,11 +16,13 @@
       owner: root
       group: root
       mode: u=rw,g=r,o=r
+    become: true
     
   - name: Restart service docker-registry
     ansible.builtin.service:
       name: docker-registry
       state: restarted
+    become: true
     
 - name: Ensure docker
   hosts: devservers
