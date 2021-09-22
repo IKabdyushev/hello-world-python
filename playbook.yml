@@ -1,18 +1,19 @@
 ---
-- name: Deploy
-  hosts: devserver
+- name: Registry create
+  hosts: registry
   gather_facts: false
   tasks:
-  - name: Apt install docker
+  - name: Apt install docker registry
     apt:
-      name: docker
+      name: docker-registry
       state: present
     become: true
     
-  - name: Copy docker-compose
-    ansible.builtin.copy:
-      src: docker-compose.yml
-      dest: ~/docker-compose.yml
-
-  - name: launch docker-compose
-    shell: docker-compose up -d
+- name: Ensure docker
+  hosts: devservers
+  become: true
+  roles:
+    - geerlingguy.docker
+  vars:
+    docker_users:
+      - ikabds
